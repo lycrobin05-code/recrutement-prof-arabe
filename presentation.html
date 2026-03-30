@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Présentation — Recrutement Prof d'arabe coranique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1B4A47;
+      --gold: #C9A97E;
+      --gold-light: #E5C9A0;
+      --white: #FFFFFF;
+      --muted: rgba(255,255,255,0.5);
+      --text: rgba(255,255,255,0.88);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--green);
+      color: var(--white);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .deck {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 100px 90px;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    /* ---- LAYOUT ---- */
+
+    .slide-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .slide-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 28px;
+      line-height: 1.25;
+    }
+
+    .slide-title span { color: var(--gold); }
+
+    /* Corps du texte — lisible comme un script */
+    .script-body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .script-body p {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 960px;
+    }
+
+    .script-body p strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .script-body p em {
+      color: rgba(255,255,255,0.65);
+      font-style: normal;
+      font-size: 0.95rem;
+    }
+
+    /* Bloc mise en évidence */
+    .highlight {
+      background: rgba(201,169,126,0.12);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 22px;
+      max-width: 960px;
+    }
+
+    .highlight p {
+      color: rgba(255,255,255,0.85) !important;
+    }
+
+    /* Split 2 colonnes */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 960px;
+    }
+
+    .col-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .col-label.yes { color: var(--gold); border-color: rgba(201,169,126,0.3); }
+    .col-label.no  { color: #E07878; border-color: rgba(224,120,120,0.3); }
+
+    /* Cover */
+    .slide-cover {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      border: 1px solid rgba(201,169,126,0.4);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .cover-title span { color: var(--gold); }
+
+    .cover-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ---- PROGRESS & NAV ---- */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+      z-index: 100;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 100;
+    }
+
+    .nav-btn {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,169,126,0.35);
+      background: rgba(27,74,71,0.9);
+      color: var(--gold);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-btn:hover { background: rgba(201,169,126,0.2); border-color: var(--gold); }
+
+    .nav-counter {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .slide-num-badge {
+      position: absolute;
+      top: 28px; right: 36px;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.12em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ==================== SLIDE 1 — COVER ==================== -->
+  <div class="slide slide-cover active">
+    <div class="cover-badge">Recrutement · Institut À la lumière du Coran</div>
+    <h1 class="cover-title">Professeur<br>d'arabe <span>coranique</span></h1>
+    <p class="cover-sub">Cours en ligne · Francophones · Projet long terme</p>
+  </div>
+
+  <!-- ==================== SLIDE 2 — INTRO ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">02 / 10</span>
+    <div class="slide-label">Introduction</div>
+    <h2 class="slide-title">Salam Aleykoum — <span>Bienvenue</span></h2>
+    <div class="script-body">
+      <p>Salam Aleykoum. Bienvenue chez l'Institut À la lumière du Coran. Aujourd'hui, nous recherchons des professeurs d'arabe coranique pour notre Institut.</p>
+      <p>Mais avant que vous postuliez, je veux prendre quelques petites minutes pour me présenter, et pour être clair sur les profils qu'on cherche — et sur ce qu'on ne cherche pas.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 3 — QUI JE SUIS ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">03 / 10</span>
+    <div class="slide-label">Qui suis-je ?</div>
+    <h2 class="slide-title">Je m'appelle <span>Thomas</span></h2>
+    <div class="script-body">
+      <p>Je suis fondateur de l'Institut À la lumière du Coran.</p>
+      <p>Depuis 2 ans, j'aide les musulmans francophones à comprendre l'arabe du Coran au sein de mon Institut.</p>
+      <p>J'ai personnellement appris l'arabe au sein de l'Institut de <strong>Nouman Ali Khan</strong>, duquel j'ai repris la méthode d'enseignement — que j'ai pu adapter pour les francophones, pour aujourd'hui la transmettre au sein de mon Institut.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4 — CE QU'ON CHERCHE ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">04 / 10</span>
+    <div class="slide-label">Profil recherché</div>
+    <h2 class="slide-title">Ce qu'on <span>cherche</span></h2>
+    <div class="script-body">
+      <p>L'Institut en ligne grandit, nous recherchons donc des professeurs pour enseigner au sein de l'Institut. Voici les critères qu'on recherche :</p>
+      <p>Nous recherchons un professeur capable d'enseigner <strong>l'arabe coranique</strong> à des francophones. Au sein de l'Institut, l'objectif est que les élèves atteignent une compréhension totale de l'arabe du Coran. Nous cherchons donc des professeurs capables d'enseigner l'arabe coranique <strong>pour tout niveau</strong> — d'un débutant jusqu'à la compréhension totale de l'arabe du Coran.</p>
+      <p>Nous recherchons des professeurs qui parlent parfaitement français, et qui ont déjà de l'expérience dans l'enseignement à des francophones.</p>
+      <p>Il faut que l'enseignement soit ton activité principale, ou qu'elle <strong>devienne ton activité principale</strong>.</p>
+      <p>Nous recherchons des professeurs disponibles pour s'engager dans un <strong>projet long terme</strong> — qui souhaitent avoir des élèves réguliers, un flux d'élèves stable, des revenus constants, sans avoir à prospecter ni à chercher des élèves eux-mêmes.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5 — POUR QUI / PAS POUR QUI ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">05 / 10</span>
+    <div class="slide-label">Qualification</div>
+    <h2 class="slide-title">Pour qui — et pour qui <span>ce n'est pas</span></h2>
+    <div class="script-body">
+      <div class="two-col">
+        <div>
+          <div class="col-label yes">✦ &nbsp;Si tu corresponds à ce profil…</div>
+          <p>Tu es donc <strong>concerné par le poste</strong> et cette vidéo est faite pour toi. Continue à regarder.</p>
+        </div>
+        <div>
+          <div class="col-label no">✕ &nbsp;Par contre, ce n'est pas pour toi si…</div>
+          <p style="color:rgba(255,255,255,0.75)">Tu n'as jamais enseigné à des francophones, si tu n'es pas disponible sur le long terme, ou si tu ne peux pas enseigner la compréhension de l'arabe coranique.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6 — LA MISSION ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">06 / 10</span>
+    <div class="slide-label">La mission</div>
+    <h2 class="slide-title">Ce qu'on fait à <span>l'Institut</span></h2>
+    <div class="script-body">
+      <p>Ce qu'on fait à l'Institut est <strong>spécifique</strong>. On n'enseigne pas l'arabe du quotidien. On ne va pas apprendre aux élèves à "prendre l'avion" ou "faire les courses". On enseigne uniquement <strong>l'arabe coranique</strong>.</p>
+      <p>L'objectif premier pour les élèves est d'atteindre la <strong>compréhension totale de l'arabe du Coran</strong>. Notre objectif n'est pas d'enseigner l'arabe littéraire de la vie quotidienne.</p>
+      <p>Pour ça, on utilise une méthode précise : <strong>la méthode Bahyna</strong>. C'est une méthode que j'ai apprise au sein de l'Institut de Nouman Ali Khan.</p>
+      <p>C'est une méthode qui se concentre exclusivement sur l'arabe coranique, où <strong>plus de 90% des mots vus en cours</strong> reviennent directement dans le Coran.</p>
+      <div class="highlight">
+        <p>Si ton profil nous intéresse, tu seras <strong>formé à cette méthode</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7 — LES ÉLÈVES ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">07 / 10</span>
+    <div class="slide-label">Les élèves</div>
+    <h2 class="slide-title">Qui sont <span>vos élèves</span> ?</h2>
+    <div class="script-body">
+      <p>Avec cette méthode et l'offre qu'on propose, nos élèves ont pour objectif d'atteindre la compréhension de l'arabe du Coran en <strong>9 mois</strong> s'ils savent déjà lire l'arabe, ou en <strong>10 à 11 mois</strong> s'ils ne savent pas encore lire l'arabe.</p>
+      <p>Ce sont des élèves adultes, entre <strong>25 et 40 ans</strong>, engagés, qui s'inscrivent pour leur apprentissage complet.</p>
+      <p>Certains ne savent pas encore lire l'arabe quand ils arrivent — donc on leur apprend à lire, puis on passe à la compréhension.</p>
+      <p>D'autres savent déjà lire — donc on travaille directement sur la compréhension.</p>
+      <p>Au sein de l'Institut, on vous fournit tous les supports utilisés avec les élèves : <strong>plateformes vidéo, manuels, exercices</strong>. C'est un cadre structuré où tout le monde enseigne avec la même méthode, pour obtenir les mêmes résultats.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 8 — RÉSUMÉ ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">08 / 10</span>
+    <div class="slide-label">En résumé</div>
+    <h2 class="slide-title">Le profil exact qu'on <span>cherche</span></h2>
+    <div class="script-body">
+      <p>Donc pour résumer, je cherche quelqu'un qui <strong>maîtrise l'arabe coranique</strong> — pas juste l'arabe littéraire.</p>
+      <p>Quelqu'un qui sait <strong>expliquer simplement</strong>, quel que soit le niveau de l'élève — du débutant total jusqu'à la compréhension avancée.</p>
+      <p>Quelqu'un qui est prêt à enseigner au sein d'un cadre structuré, qui lui apporte des élèves <strong>engagés dans un cursus de 9 à 10 mois</strong>, de manière stable et récurrente.</p>
+      <p>Et qui est prêt à <strong>être formé et à s'améliorer</strong> en tant que professeur.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 9 — CONDITIONS ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">09 / 10</span>
+    <div class="slide-label">Conditions</div>
+    <h2 class="slide-title">Comment ça <span>fonctionne</span></h2>
+    <div class="script-body">
+      <p>Les cours se font en ligne, en visio sur <strong>Google Meet</strong>.</p>
+      <p>La rémunération est à l'heure. Le montant exact est encore à définir ensemble selon votre profil.</p>
+      <p>Notre objectif à l'avenir, c'est d'avoir des professeurs qui travaillent avec nous à <strong>temps plein</strong>, autour de 35 heures par semaine. Si au début ce n'est pas le cas — parce que tu as déjà des élèves — c'est normal. Mais notre objectif à terme est que tu travailles à <strong>100% avec nous</strong>.</p>
+      <p>Et si tu souhaites avoir plus d'élèves, faire plus de cours, augmenter tes heures — <strong>on peut te l'apporter</strong>. Car c'est dans notre intérêt autant que dans le tien.</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 10 — POUR POSTULER ==================== -->
+  <div class="slide">
+    <span class="slide-num-badge">10 / 10</span>
+    <div class="slide-label">Candidature</div>
+    <h2 class="slide-title">Pour <span>postuler</span></h2>
+    <div class="script-body">
+      <p>Donc si ce que tu viens d'entendre te parle, et si tu te reconnais dans ce profil — je vais te laisser un formulaire juste en dessous. Il y a quelques questions sur ton parcours, tes disponibilités, ton rapport à l'enseignement.</p>
+      <p>Une fois le formulaire rempli, il y a une <strong>deuxième étape obligatoire</strong> :</p>
+      <div class="highlight">
+        <p>Tu devras nous contacter sur <strong>WhatsApp au 07 80 50 52 14</strong>. Dans ce message, tu indiques ton <strong>prénom et nom</strong>, tu nous dis que tu as rempli le formulaire, et tu nous envoies un <strong>message vocal</strong> dans lequel tu nous expliques :</p>
+        <p style="margin-top:12px; color: var(--gold-light)"><strong>Le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.</strong></p>
+      </div>
+      <p>C'est important pour moi d'entendre comment tu t'exprimes et comment tu es capable d'expliquer un concept grammatical.</p>
+      <p>Pas la peine de s'aider d'internet ou d'une IA — car on te posera les mêmes questions lors d'un entretien en visio. Sois honnête, ça nous fera gagner du temps à tous les deux.</p>
+      <p>Si ton profil nous intéresse, on te recontactera pour un <strong>entretien en visio avec moi</strong>.</p>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<div class="nav">
+  <button class="nav-btn" onclick="navigate(-1)">←</button>
+  <span class="nav-counter" id="counter">1 / 10</span>
+  <button class="nav-btn" onclick="navigate(1)">→</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  function navigate(dir) { showSlide(current + dir); }
+
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'ArrowDown', ' '].includes(e.key)) { e.preventDefault(); navigate(1); }
+    if (['ArrowLeft', 'ArrowUp'].includes(e.key)) { e.preventDefault(); navigate(-1); }
+  });
+
+  document.getElementById('progress').style.width = (1 / total * 100) + '%';
+</script>
+
+</body>
+</html>

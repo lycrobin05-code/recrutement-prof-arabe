@@ -1,0 +1,311 @@
+/* ===========================
+   VARIABLES
+=========================== */
+:root {
+  --green:     #1B4A47;
+  --green-mid: #245C58;
+  --gold:      #C9A97E;
+  --cream:     #F7F3EC;
+  --white:     #FFFFFF;
+  --dark:      #1A1A1A;
+  --text:      #3D3D3D;
+  --muted:     #7A7A7A;
+  --radius:    10px;
+}
+
+/* ===========================
+   RESET & BASE
+=========================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  background-color: var(--green);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(201,169,126,0.2);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  background-color: var(--green);
+  padding: 52px 0 60px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(201,169,126,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(201,169,126,0.5);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem;
+  color: var(--white);
+  max-width: 580px;
+  margin: 0 auto 20px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: rgba(255,255,255,0.68);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===========================
+   VIDEO
+=========================== */
+.video-section {
+  padding: 40px 0 0;
+  text-align: center;
+}
+
+.video-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.video-label::before,
+.video-label::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--gold);
+  opacity: 0.5;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(27,74,71,0.18);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+/* ===========================
+   CTA FLÉCHÉ
+=========================== */
+.cta-arrow {
+  background-color: var(--green);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.cta-arrow .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-arrow p {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.cta-arrow .arrow {
+  color: var(--gold);
+  font-size: 1.4rem;
+  animation: bounce 1.4s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+/* ===========================
+   FORMULAIRE
+=========================== */
+.form-section {
+  padding: 32px 0 72px;
+}
+
+.form-wrapper {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(27,74,71,0.1);
+}
+
+/* ===========================
+   ÉTAPE 2 — WHATSAPP
+=========================== */
+.step2 {
+  background-color: var(--green);
+  padding: 64px 0 80px;
+  border-top: 1px solid rgba(201,169,126,0.15);
+}
+
+.step2-inner {
+  background: rgba(201,169,126,0.08);
+  border: 1px solid rgba(201,169,126,0.25);
+  border-radius: var(--radius);
+  padding: 40px 44px;
+}
+
+.step2-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.step2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.step2-text {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.step2-text strong {
+  color: var(--white);
+}
+
+.step2-question {
+  background: rgba(201,169,126,0.15);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+.step2-note {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.step2-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.step2-btn:hover { opacity: 0.85; }
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background-color: var(--green);
+  padding: 28px 0;
+  text-align: center;
+  border-top: 1px solid rgba(201,169,126,0.2);
+}
+
+footer p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 640px) {
+  .hero {
+    padding: 52px 0 68px;
+  }
+
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  .subtitle {
+    font-size: 0.93rem;
+  }
+
+  .criteria h2,
+  .form-section h2 {
+    font-size: 1.45rem;
+  }
+}
