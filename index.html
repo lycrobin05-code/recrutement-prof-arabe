@@ -23,10 +23,17 @@
     <div class="container">
       <p class="video-label">Regardez cette vidéo avant de postuler</p>
       <div class="video-wrapper">
-        <video controls preload="metadata" playsinline style="width:100%;border-radius:8px;display:block;">
-          <source src="video-recrutement.mp4" type="video/mp4">
-          Votre navigateur ne supporte pas la lecture vidéo.
-        </video>
+        <!--
+          REMPLACER VIDEO_ID par l'ID YouTube de la vidéo de Thomas
+          Ex : si l'URL est https://youtu.be/dQw4w9WgXcQ → mettre dQw4w9WgXcQ
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+          title="Message de Thomas — Recrutement prof d'arabe coranique"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
@@ -43,6 +50,10 @@
   <section class="form-section" id="postuler">
     <div class="container">
       <div class="form-wrapper">
+        <!--
+          REMPLACER JOTFORM_ID par l'ID de votre formulaire JotForm
+          Ex : si l'URL est https://form.jotform.com/241234567890 → mettre 241234567890
+        -->
         <iframe
           src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagfmDO1ZC5LJuxow/form"
           title="Formulaire de candidature"
@@ -61,7 +72,7 @@
         <div class="step2-num">Étape 2</div>
         <h2 class="step2-title">Envoyez-nous un message vocal sur WhatsApp</h2>
         <p class="step2-text">
-          Une fois le formulaire rempli, contactez-nous sur WhatsApp au <strong>07 80 50 52 14</strong>.<br>
+          Une fois le formulaire rempli, contactez-nous sur WhatsApp au <strong>+33 7 80 50 52 14</strong>.<br>
           Indiquez votre <strong>prénom et nom</strong>, dites que vous avez rempli le formulaire, puis envoyez un message vocal dans lequel vous expliquez :
         </p>
         <div class="step2-question">
