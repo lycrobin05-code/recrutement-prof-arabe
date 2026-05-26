@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidature reçue — Institut À la lumière du Coran</title>
+  <meta name="description" content="Votre candidature a bien été reçue. Étape suivante : envoyer un message vocal WhatsApp.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3206053202921762');
+  fbq('track', 'PageView');
+  fbq('track', 'Lead', {
+    content_name: 'Candidature prof arabe coranique',
+    content_category: 'Recrutement'
+  });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3206053202921762&ev=PageView&noscript=1"
+  /></noscript>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3206053202921762&ev=Lead&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Candidature reçue</span>
+      <h1>Merci. Votre candidature est entre nos mains.</h1>
+      <p class="subtitle">Nous lisons chaque dossier avec attention. Mais avant ça, une dernière étape essentielle.</p>
+    </div>
+  </section>
+
+  <!-- ÉTAPE FINALE — WHATSAPP -->
+  <section class="step2">
+    <div class="container">
+      <div class="step2-inner">
+        <div class="step2-num">Étape finale</div>
+        <h2 class="step2-title">Envoyez-nous votre message vocal WhatsApp</h2>
+        <p class="step2-text">
+          Pour finaliser votre candidature, contactez-nous sur WhatsApp au <strong>+33 7 80 50 52 14</strong>.<br>
+          Indiquez votre <strong>prénom et nom</strong>, dites que vous avez rempli le formulaire, puis envoyez un message vocal dans lequel vous expliquez :
+        </p>
+        <div class="step2-question">
+          Le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.
+        </div>
+        <p class="step2-note">C'est ce message vocal qui nous permettra d'évaluer votre façon de vous exprimer et d'expliquer un concept grammatical. Soyez spontané — pas de préparation sur internet, on vous posera les mêmes questions en entretien.</p>
+        <a id="btn-whatsapp-merci" class="step2-btn" href="https://wa.me/33780505214" target="_blank">
+          Ouvrir WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Institut À la lumière du Coran · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- Meta Pixel — Custom events -->
+  <script>
+    (function() {
+      var whatsappBtn = document.getElementById('btn-whatsapp-merci');
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function() {
+          fbq('track', 'Contact', {
+            content_name: 'WhatsApp recrutement prof (page merci)',
+            content_category: 'Recrutement'
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

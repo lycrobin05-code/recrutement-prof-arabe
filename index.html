@@ -7,6 +7,24 @@
   <meta name="description" content="L'Institut À la lumière du Coran recrute un professeur d'arabe coranique. Postulez en 5 minutes.">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3206053202921762');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3206053202921762&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -23,7 +41,7 @@
     <div class="container">
       <p class="video-label">Regardez cette vidéo avant de postuler</p>
       <div class="video-wrapper">
-        <video controls preload="metadata" playsinline style="width:100%;border-radius:8px;display:block;">
+        <video id="video-thomas" controls preload="metadata" playsinline style="width:100%;border-radius:8px;display:block;">
           <source src="video-recrutement.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la lecture vidéo.
         </video>
@@ -72,7 +90,7 @@
           Le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.
         </div>
         <p class="step2-note">C'est ce message vocal qui nous permettra d'évaluer votre façon de vous exprimer et d'expliquer un concept grammatical. Soyez spontané — pas de préparation sur internet, on vous posera les mêmes questions en entretien.</p>
-        <a class="step2-btn" href="https://wa.me/33780505214" target="_blank">
+        <a id="btn-whatsapp" class="step2-btn" href="https://wa.me/33780505214" target="_blank">
           Ouvrir WhatsApp →
         </a>
       </div>
@@ -85,6 +103,35 @@
       <p>© 2026 Institut À la lumière du Coran · Tous droits réservés</p>
     </div>
   </footer>
+
+  <!-- Meta Pixel — Custom events -->
+  <script>
+    (function() {
+      var video = document.getElementById('video-thomas');
+      if (video) {
+        var viewContentFired = false;
+        video.addEventListener('play', function() {
+          if (!viewContentFired) {
+            fbq('track', 'ViewContent', {
+              content_name: 'Video recrutement prof arabe',
+              content_category: 'Recrutement'
+            });
+            viewContentFired = true;
+          }
+        });
+      }
+
+      var whatsappBtn = document.getElementById('btn-whatsapp');
+      if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', function() {
+          fbq('track', 'Contact', {
+            content_name: 'WhatsApp recrutement prof',
+            content_category: 'Recrutement'
+          });
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
