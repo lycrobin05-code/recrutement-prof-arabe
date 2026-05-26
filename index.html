@@ -107,6 +107,19 @@
   <!-- Meta Pixel — Custom events -->
   <script>
     (function() {
+      var leadFired = false;
+
+      function fireLead(source) {
+        if (leadFired) return;
+        leadFired = true;
+        fbq('track', 'Lead', {
+          content_name: 'Candidature prof arabe coranique',
+          content_category: 'Recrutement',
+          source: source
+        });
+      }
+
+      // ViewContent : démarrage de la vidéo Thomas (1x par session)
       var video = document.getElementById('video-thomas');
       if (video) {
         var viewContentFired = false;
@@ -121,6 +134,23 @@
         });
       }
 
+      // Lead : soumission du formulaire Airtable (détecté via postMessage de l'iframe)
+      window.addEventListener('message', function(event) {
+        if (!event.origin || event.origin.indexOf('airtable.com') === -1) return;
+        var data = event.data;
+        var matches = false;
+        if (typeof data === 'string') {
+          matches = /submit|submission|success/i.test(data);
+        } else if (data && typeof data === 'object') {
+          var str = '';
+          try { str = JSON.stringify(data); } catch (e) {}
+          matches = /submit|submission|success/i.test(str);
+        }
+        if (matches) fireLead('airtable_postmessage');
+      });
+
+      // Contact + Lead fallback : clic sur le bouton WhatsApp (Étape 2)
+      // Le clic WhatsApp = preuve que le candidat a rempli le formulaire et passe à l'étape 2
       var whatsappBtn = document.getElementById('btn-whatsapp');
       if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function() {
@@ -128,6 +158,7 @@
             content_name: 'WhatsApp recrutement prof',
             content_category: 'Recrutement'
           });
+          fireLead('whatsapp_click');
         });
       }
     })();
