@@ -67,18 +67,18 @@
           <button type="button" class="genre-btn" data-genre="femme">Femme</button>
         </div>
       </div>
-      <div class="form-wrapper" id="form-homme" hidden>
+      <div class="form-wrapper form-offscreen" id="form-homme">
         <iframe
-          data-src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagms7TEmtjhEwyTf/form"
+          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagms7TEmtjhEwyTf/form" loading="eager"
           title="Formulaire de candidature — Professeur"
           frameborder="0"
           scrolling="yes"
           style="min-width:100%;min-height:1100px;border:none;">
         </iframe>
       </div>
-      <div class="form-wrapper" id="form-femme" hidden>
+      <div class="form-wrapper form-offscreen" id="form-femme">
         <iframe
-          data-src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagAJjUTPBMfrbG5q/form"
+          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagAJjUTPBMfrbG5q/form" loading="eager"
           title="Formulaire de candidature — Professeure"
           frameborder="0"
           scrolling="yes"
@@ -162,11 +162,10 @@
           ['homme', 'femme'].forEach(function(g) {
             var wrap = document.getElementById('form-' + g);
             var show = (g === genre);
-            wrap.hidden = !show;
-            var iframe = wrap.querySelector('iframe');
-            if (show && !iframe.src) iframe.src = iframe.getAttribute('data-src');
+            wrap.classList.toggle('form-offscreen', !show);
           });
           fbq('trackCustom', 'GenreChoisi', { genre: genre });
+          document.getElementById('form-' + genre).scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
 
