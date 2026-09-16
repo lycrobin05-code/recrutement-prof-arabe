@@ -408,3 +408,10 @@ body { overflow-x: hidden; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 .unmute-icon { font-size: 1.3rem; }
+
+.step2-phone {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+}
+.step2-phone a { color: var(--gold); font-weight: 600; text-decoration: none; }
