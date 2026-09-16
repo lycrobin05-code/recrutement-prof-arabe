@@ -415,3 +415,6 @@ body { overflow-x: hidden; }
   color: rgba(255,255,255,0.7);
 }
 .step2-phone a { color: var(--gold); font-weight: 600; text-decoration: none; }
+
+/* hidden doit gagner sur les display: des classes */
+[hidden] { display: none !important; }
