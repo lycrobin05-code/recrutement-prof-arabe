@@ -365,3 +365,6 @@ footer p {
   }
   .form-wrapper iframe { min-height: 1300px !important; }
 }
+
+body { overflow-x: hidden; }
+.form-section { position: relative; }
