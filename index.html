@@ -60,14 +60,26 @@
   <!-- FORMULAIRE -->
   <section class="form-section" id="postuler">
     <div class="container">
-      <div class="form-wrapper">
-        <!--
-          REMPLACER JOTFORM_ID par l'ID de votre formulaire JotForm
-          Ex : si l'URL est https://form.jotform.com/241234567890 → mettre 241234567890
-        -->
+      <div class="genre-choice" id="genre-choice">
+        <p class="genre-label">Tu es ?</p>
+        <div class="genre-buttons">
+          <button type="button" class="genre-btn" data-genre="homme">Homme</button>
+          <button type="button" class="genre-btn" data-genre="femme">Femme</button>
+        </div>
+      </div>
+      <div class="form-wrapper" id="form-homme" hidden>
         <iframe
-          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagfmDO1ZC5LJuxow/form"
-          title="Formulaire de candidature"
+          data-src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagms7TEmtjhEwyTf/form"
+          title="Formulaire de candidature — Professeur"
+          frameborder="0"
+          scrolling="yes"
+          style="min-width:100%;min-height:1100px;border:none;">
+        </iframe>
+      </div>
+      <div class="form-wrapper" id="form-femme" hidden>
+        <iframe
+          data-src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagAJjUTPBMfrbG5q/form"
+          title="Formulaire de candidature — Professeure"
           frameborder="0"
           scrolling="yes"
           style="min-width:100%;min-height:1100px;border:none;">
@@ -140,6 +152,23 @@
           }
         });
       }
+
+      // Choix Homme / Femme → affiche le formulaire correspondant
+      var genreBtns = document.querySelectorAll('.genre-btn');
+      Array.prototype.forEach.call(genreBtns, function(btn) {
+        btn.addEventListener('click', function() {
+          var genre = btn.getAttribute('data-genre');
+          Array.prototype.forEach.call(genreBtns, function(b) { b.classList.toggle('active', b === btn); });
+          ['homme', 'femme'].forEach(function(g) {
+            var wrap = document.getElementById('form-' + g);
+            var show = (g === genre);
+            wrap.hidden = !show;
+            var iframe = wrap.querySelector('iframe');
+            if (show && !iframe.src) iframe.src = iframe.getAttribute('data-src');
+          });
+          fbq('trackCustom', 'GenreChoisi', { genre: genre });
+        });
+      });
 
       // Lead : soumission du formulaire Airtable (détecté via postMessage de l'iframe)
       window.addEventListener('message', function(event) {

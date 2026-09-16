@@ -1,0 +1,332 @@
+<!--
+  PAGE RECRUTEMENT PROF D'ARABE — SNIPPET POUR SYSTEME.IO
+  À coller dans un bloc "Code HTML personnalisé" sur ta page systeme.io.
+  CSS, pixel Meta et tracking d'events inclus.
+  Vidéo MP4 servie depuis GitHub Pages (URL absolue).
+-->
+
+<!-- ============================================
+     META PIXEL (3206053202921762)
+============================================ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3206053202921762');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3206053202921762&ev=PageView&noscript=1"
+/></noscript>
+
+<!-- ============================================
+     CSS — Charte Institut À la lumière du Coran
+============================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap');
+
+.alc-root {
+  --green:     #1B4A47;
+  --green-mid: #245C58;
+  --gold:      #C9A97E;
+  --cream:     #F7F3EC;
+  --white:     #FFFFFF;
+  --dark:      #1A1A1A;
+  --text:      #3D3D3D;
+  --muted:     #7A7A7A;
+  --radius:    10px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  background: var(--cream);
+}
+.alc-root *, .alc-root *::before, .alc-root *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+.alc-root img { max-width: 100%; display: block; }
+.alc-root .container {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+}
+
+/* HERO */
+.alc-root .hero {
+  background-color: var(--green);
+  padding: 52px 0 60px;
+  text-align: center;
+}
+.alc-root .badge {
+  display: inline-block;
+  background-color: rgba(201,169,126,0.15);
+  color: var(--gold);
+  border: 1px solid rgba(201,169,126,0.5);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 24px;
+}
+.alc-root .hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.3rem; color: var(--white);
+  max-width: 580px; margin: 0 auto 20px;
+  line-height: 1.25; font-weight: 600;
+}
+
+/* VIDEO */
+.alc-root .video-section {
+  padding: 40px 0 0; text-align: center;
+}
+.alc-root .video-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--gold); margin-bottom: 22px;
+}
+.alc-root .video-label::before,
+.alc-root .video-label::after {
+  content: ''; display: block;
+  width: 28px; height: 1px;
+  background-color: var(--gold); opacity: 0.5;
+}
+.alc-root .video-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(27,74,71,0.18);
+}
+
+/* CTA FLECHE */
+.alc-root .cta-arrow {
+  background-color: var(--green);
+  padding: 28px 0; text-align: center;
+}
+.alc-root .cta-arrow .container {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+}
+.alc-root .cta-arrow p {
+  color: var(--gold); font-size: 1rem;
+  font-weight: 600; letter-spacing: 0.01em;
+}
+.alc-root .cta-arrow .arrow {
+  color: var(--gold); font-size: 1.4rem;
+  animation: alc-bounce 1.4s infinite;
+}
+@keyframes alc-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
+/* FORMULAIRE */
+.alc-root .form-section { padding: 32px 0 72px; }
+.alc-root .form-wrapper {
+  background: var(--white); border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(27,74,71,0.1);
+}
+
+/* ETAPE 2 — WHATSAPP */
+.alc-root .step2 {
+  background-color: var(--green);
+  padding: 64px 0 80px;
+  border-top: 1px solid rgba(201,169,126,0.15);
+}
+.alc-root .step2-inner {
+  background: rgba(201,169,126,0.08);
+  border: 1px solid rgba(201,169,126,0.25);
+  border-radius: var(--radius);
+  padding: 40px 44px;
+}
+.alc-root .step2-num {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.alc-root .step2-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; color: var(--white);
+  font-weight: 600; margin-bottom: 18px;
+}
+.alc-root .step2-text {
+  font-size: 0.95rem; color: rgba(255,255,255,0.75);
+  line-height: 1.65; margin-bottom: 20px;
+}
+.alc-root .step2-text strong { color: var(--white); }
+.alc-root .step2-question {
+  background: rgba(201,169,126,0.15);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 20px; font-size: 1rem;
+  font-weight: 600; color: var(--gold);
+  margin-bottom: 18px; font-style: italic;
+}
+.alc-root .step2-note {
+  font-size: 0.82rem; color: rgba(255,255,255,0.45);
+  line-height: 1.6; margin-bottom: 28px;
+}
+.alc-root .step2-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: var(--white); font-size: 0.9rem;
+  font-weight: 600; padding: 13px 28px;
+  border-radius: 6px; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.alc-root .step2-btn:hover { opacity: 0.85; }
+
+/* FOOTER */
+.alc-root .alc-footer {
+  background-color: var(--green);
+  padding: 28px 0; text-align: center;
+  border-top: 1px solid rgba(201,169,126,0.2);
+}
+.alc-root .alc-footer p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.78rem; letter-spacing: 0.02em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .alc-root .hero { padding: 52px 0 68px; }
+  .alc-root .hero h1 { font-size: 1.65rem; }
+}
+</style>
+
+<!-- ============================================
+     CONTENU
+============================================ -->
+<div class="alc-root">
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Recrutement ouvert</span>
+      <h1>Nous recrutons un professeur d'arabe coranique</h1>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="container">
+      <p class="video-label">Regardez cette vidéo avant de postuler</p>
+      <div class="video-wrapper">
+        <video id="alc-video-thomas" controls preload="metadata" playsinline style="width:100%;border-radius:8px;display:block;">
+          <source src="https://lycrobin05-code.github.io/recrutement-prof-arabe/video-recrutement.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-arrow">
+    <div class="container">
+      <p>Étape 1 — Remplissez ce questionnaire</p>
+      <span class="arrow">↓</span>
+    </div>
+  </div>
+
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <iframe
+          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagfmDO1ZC5LJuxow/form"
+          title="Formulaire de candidature"
+          frameborder="0"
+          scrolling="yes"
+          style="min-width:100%;min-height:1100px;border:none;">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="step2">
+    <div class="container">
+      <div class="step2-inner">
+        <div class="step2-num">Étape 2</div>
+        <h2 class="step2-title">Envoyez-nous un message vocal sur WhatsApp</h2>
+        <p class="step2-text">
+          Une fois le formulaire rempli, contactez-nous sur WhatsApp au <strong>+33 7 80 50 52 14</strong>.<br>
+          Indiquez votre <strong>prénom et nom</strong>, dites que vous avez rempli le formulaire, puis envoyez un message vocal dans lequel vous expliquez <strong><u>EN FRANÇAIS</u></strong> :
+        </p>
+        <div class="step2-question">
+          Le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.
+        </div>
+        <p class="step2-note">C'est ce message vocal qui nous permettra d'évaluer votre façon de vous exprimer et d'expliquer un concept grammatical. Soyez spontané — pas de préparation sur internet, on vous posera les mêmes questions en entretien.</p>
+        <a id="alc-btn-whatsapp" class="step2-btn" href="https://wa.me/33780505214" target="_blank">
+          Ouvrir WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="alc-footer">
+    <div class="container">
+      <p>© 2026 Institut À la lumière du Coran · Tous droits réservés</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================
+     PIXEL — Custom events
+============================================ -->
+<script>
+(function() {
+  var leadFired = false;
+
+  function fireLead(source) {
+    if (leadFired) return;
+    leadFired = true;
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'Candidature prof arabe coranique',
+        content_category: 'Recrutement',
+        source: source
+      });
+    }
+  }
+
+  var video = document.getElementById('alc-video-thomas');
+  if (video) {
+    var viewContentFired = false;
+    video.addEventListener('play', function() {
+      if (!viewContentFired && typeof fbq === 'function') {
+        fbq('track', 'ViewContent', {
+          content_name: 'Video recrutement prof arabe',
+          content_category: 'Recrutement'
+        });
+        viewContentFired = true;
+      }
+    });
+  }
+
+  window.addEventListener('message', function(event) {
+    if (!event.origin || event.origin.indexOf('airtable.com') === -1) return;
+    var data = event.data;
+    var matches = false;
+    if (typeof data === 'string') {
+      matches = /submit|submission|success/i.test(data);
+    } else if (data && typeof data === 'object') {
+      var str = '';
+      try { str = JSON.stringify(data); } catch (e) {}
+      matches = /submit|submission|success/i.test(str);
+    }
+    if (matches) fireLead('airtable_postmessage');
+  });
+
+  var whatsappBtn = document.getElementById('alc-btn-whatsapp');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          content_name: 'WhatsApp recrutement prof',
+          content_category: 'Recrutement'
+        });
+      }
+      fireLead('whatsapp_click');
+    });
+  }
+})();
+</script>

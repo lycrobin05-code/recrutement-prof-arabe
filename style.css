@@ -309,3 +309,36 @@ footer p {
     font-size: 1.45rem;
   }
 }
+
+/* ---------- Choix Homme / Femme ---------- */
+.genre-choice {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.genre-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.genre-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.genre-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 40px;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--green);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.genre-btn:hover { background: var(--green-mid); color: #fff; }
+.genre-btn.active { background: var(--green); color: var(--gold); }
+[hidden] { display: none !important; }
