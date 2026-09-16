@@ -32,7 +32,7 @@
   <section class="hero">
     <div class="container">
       <span class="badge">Recrutement ouvert</span>
-      <h1>Nous recrutons un professeur d'arabe coranique</h1>
+      <h1>Nous recrutons un professeur<br class="br-mobile">d'arabe coranique</h1>
     </div>
   </section>
 
@@ -41,10 +41,14 @@
     <div class="container">
       <p class="video-label">Regardez cette vidéo avant de postuler</p>
       <div class="video-wrapper">
-        <video id="video-thomas" controls preload="metadata" playsinline style="width:100%;border-radius:8px;display:block;">
+        <video id="video-thomas" controls preload="auto" playsinline autoplay style="width:100%;border-radius:8px;display:block;">
           <source src="video-recrutement.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la lecture vidéo.
         </video>
+        <button type="button" id="unmute-overlay" class="unmute-overlay" hidden>
+          <span class="unmute-icon">🔊</span>
+          <span>Touchez pour activer le son</span>
+        </button>
       </div>
     </div>
   </section>
@@ -140,6 +144,29 @@
         video.playbackRate = SPEED;
         video.addEventListener('loadedmetadata', function() { video.playbackRate = SPEED; });
         video.addEventListener('play', function() { if (video.playbackRate === 1) video.playbackRate = SPEED; });
+
+        // Autoplay : on tente avec le son ; si le navigateur refuse (cas général sur mobile),
+        // on lance en muet et on affiche un bouton "activer le son"
+        var overlay = document.getElementById('unmute-overlay');
+        function tryAutoplay() {
+          video.muted = false;
+          var p = video.play();
+          if (!p || !p.then) return;
+          p.catch(function() {
+            video.muted = true;
+            video.play().then(function() {
+              overlay.hidden = false;
+            }).catch(function() {});
+          });
+        }
+        tryAutoplay();
+        overlay.addEventListener('click', function() {
+          video.muted = false;
+          video.currentTime = 0;
+          video.play();
+          overlay.hidden = true;
+        });
+        video.addEventListener('volumechange', function() { if (!video.muted) overlay.hidden = true; });
 
         var viewContentFired = false;
         video.addEventListener('play', function() {

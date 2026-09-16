@@ -66,7 +66,7 @@ header {
 =========================== */
 .hero {
   background-color: var(--green);
-  padding: 52px 0 60px;
+  padding: 40px 0 44px;
   text-align: center;
 }
 
@@ -89,9 +89,10 @@ header {
   font-size: 2.3rem;
   color: var(--white);
   max-width: 580px;
-  margin: 0 auto 20px;
-  line-height: 1.25;
+  margin: 0 auto;
+  line-height: 1.2;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 .subtitle {
@@ -185,7 +186,7 @@ header {
    FORMULAIRE
 =========================== */
 .form-section {
-  padding: 32px 0 72px;
+  padding: 28px 0 48px;
 }
 
 .form-wrapper {
@@ -200,7 +201,7 @@ header {
 =========================== */
 .step2 {
   background-color: var(--green);
-  padding: 64px 0 80px;
+  padding: 48px 0 56px;
   border-top: 1px solid rgba(201,169,126,0.15);
 }
 
@@ -291,14 +292,30 @@ footer p {
 /* ===========================
    RESPONSIVE
 =========================== */
+.br-mobile { display: none; }
+
 @media (max-width: 640px) {
+  .container { padding: 0 16px; }
+
   .hero {
-    padding: 52px 0 68px;
+    padding: 28px 0 30px;
   }
 
+  .badge { margin-bottom: 14px; }
+
   .hero h1 {
-    font-size: 1.65rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
   }
+  .br-mobile { display: inline; }
+
+  .video-section { padding: 22px 0 0; }
+  .video-label { margin-bottom: 12px; font-size: 0.7rem; }
+  .cta-arrow { padding: 18px 0; }
+  .form-section { padding: 20px 0 32px; }
+  .genre-choice { margin-bottom: 18px; }
+  .step2 { padding: 32px 0 36px; }
+  .step2-inner { padding: 24px 18px; }
 
   .subtitle {
     font-size: 0.93rem;
@@ -368,3 +385,26 @@ footer p {
 
 body { overflow-x: hidden; }
 .form-section { position: relative; }
+
+/* ---------- Overlay "activer le son" ---------- */
+.unmute-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  background: rgba(27,74,71,0.92);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.unmute-icon { font-size: 1.3rem; }
