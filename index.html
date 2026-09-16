@@ -123,7 +123,7 @@
       var video = document.getElementById('video-thomas');
       if (video) {
         // Vitesse de lecture par défaut x1.5 (réappliquée si le navigateur la remet à 1)
-        var SPEED = 1.5;
+        var SPEED = 1.1;
         video.defaultPlaybackRate = SPEED;
         video.playbackRate = SPEED;
         video.addEventListener('loadedmetadata', function() { video.playbackRate = SPEED; });
