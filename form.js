@@ -101,11 +101,22 @@
     if (!jours.length) { showError("Indique au moins un jour de disponibilité."); return; }
 
     var v = function (name) { return (form[name].value || "").trim(); };
+
+    // Numéro WhatsApp au format international (+213…) via le sélecteur d'indicatif
+    var whatsapp = v("whatsapp");
+    if (window.itiPhone) {
+      if (!window.itiPhone.isValidNumber()) {
+        showError("Ce numéro ne semble pas valide pour le pays choisi. Vérifie l'indicatif et le numéro.");
+        form.whatsapp.focus();
+        return;
+      }
+      whatsapp = window.itiPhone.getNumber();
+    }
     var payload = {
       genre: genre,
       prenom: v("prenom"),
       nom: v("nom"),
-      whatsapp: v("whatsapp"),
+      whatsapp: whatsapp,
       video_vue: form.video_vue.checked,
       temps_plein: form.temps_plein.checked,
       francais: form.francais.checked,

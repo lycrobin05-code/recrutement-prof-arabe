@@ -25,6 +25,7 @@
   src="https://www.facebook.com/tr?id=3206053202921762&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.min.css">
 </head>
 <body>
 
@@ -108,8 +109,9 @@
           </div>
 
           <div class="pform-field">
-            <label for="f-whatsapp">Numéro de téléphone (WhatsApp), avec l'indicatif du pays <b>*</b></label>
-            <input type="tel" id="f-whatsapp" name="whatsapp" required autocomplete="tel" placeholder="+33 6 12 34 56 78">
+            <label for="f-whatsapp">Numéro de téléphone (WhatsApp) <b>*</b></label>
+            <input type="tel" id="f-whatsapp" name="whatsapp" required autocomplete="tel">
+            <p class="pform-hint">Choisis ton pays dans la liste, puis tape ton numéro.</p>
           </div>
 
           <div class="pform-field">
@@ -271,6 +273,24 @@
     })();
   </script>
 
+  <!-- Sélecteur d'indicatif pays (drapeaux + noms en français) sur le champ WhatsApp -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInputWithUtils.min.js"></script>
+  <script type="module">
+    try {
+      const fr = (await import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/i18n/fr/index.js")).default;
+      const input = document.getElementById("f-whatsapp");
+      if (window.intlTelInput && input) {
+        window.itiPhone = window.intlTelInput(input, {
+          initialCountry: "fr",
+          countryOrder: ["fr", "dz", "ma", "tn", "be", "ch", "ca"],
+          i18n: fr,
+          separateDialCode: true,
+          strictMode: true,
+          formatOnDisplay: true
+        });
+      }
+    } catch (e) { /* si la librairie ne charge pas, le champ reste un champ texte classique */ }
+  </script>
   <script src="form.js"></script>
 </body>
 </html>
