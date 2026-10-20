@@ -512,6 +512,6 @@ body { overflow-x: hidden; }
   .pform-days { grid-template-columns: 1fr 1fr; }
 }
 /* sélecteur d'indicatif pays (intl-tel-input) */
-.pform .iti { width: 100%; }
+.pform .iti { width: 100%; display: block; }
 .pform .iti input[type="tel"] { width: 100%; }
 .pform-hint { margin-top: 6px; font-size: 0.8rem; color: var(--muted); }
