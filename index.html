@@ -71,23 +71,110 @@
           <button type="button" class="genre-btn" data-genre="femme">Femme</button>
         </div>
       </div>
-      <div class="form-wrapper form-offscreen" id="form-homme">
-        <iframe
-          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagL6sc92nwfNKOeq/form" loading="eager"
-          title="Formulaire de candidature — Professeur"
-          frameborder="0"
-          scrolling="yes"
-          style="min-width:100%;min-height:1100px;border:none;">
-        </iframe>
-      </div>
-      <div class="form-wrapper form-offscreen" id="form-femme">
-        <iframe
-          src="https://airtable.com/embed/appXCBUw6lqC9ZMcC/pagOIXVwcg1QdSa8R/form" loading="eager"
-          title="Formulaire de candidature — Professeure"
-          frameborder="0"
-          scrolling="yes"
-          style="min-width:100%;min-height:1100px;border:none;">
-        </iframe>
+
+      <div class="form-wrapper pform-wrapper" id="form-wrapper" hidden>
+        <form id="form-prof" class="pform" novalidate>
+          <h2 class="pform-title" id="form-titre">Candidature</h2>
+
+          <div class="pform-intro">
+            <p class="pform-warn">⚠️ À lire avant de remplir</p>
+            <p id="form-intro"></p>
+            <p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>
+            <p>Nous accompagnons des élèves engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeurs bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis.</p>
+            <p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : un message vocal WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire. Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire.</p>
+            <p><strong>Pour cette session de recrutement, nous recherchons des professeurs disponibles le samedi et le dimanche.</strong></p>
+            <p><strong>Si</strong> tu ne parles pas parfaitement français, si tu n'es pas disponible le week-end pour enseigner, ou si tu ne souhaites pas, à long terme, enseigner à temps plein dans un institut qui t'apporte de la stabilité… <strong>merci de ne pas remplir ce formulaire.</strong></p>
+          </div>
+
+          <div class="pform-check">
+            <label><input type="checkbox" name="video_vue" required> <span>Je coche cette case si j'ai bien regardé la vidéo de présentation EN ENTIER, et si j'ai bien lu le texte ci-dessus. <b>*</b></span></label>
+          </div>
+          <div class="pform-check">
+            <label><input type="checkbox" name="temps_plein" required> <span id="lbl-temps-plein"></span> <b>*</b></label>
+          </div>
+          <div class="pform-check">
+            <label><input type="checkbox" name="francais" required> <span>Je certifie que je parle parfaitement français. <b>*</b></span></label>
+          </div>
+
+          <div class="pform-row">
+            <div class="pform-field">
+              <label for="f-prenom">Prénom <b>*</b></label>
+              <input type="text" id="f-prenom" name="prenom" required autocomplete="given-name">
+            </div>
+            <div class="pform-field">
+              <label for="f-nom">Nom <b>*</b></label>
+              <input type="text" id="f-nom" name="nom" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-whatsapp">Numéro de téléphone (WhatsApp), avec l'indicatif du pays <b>*</b></label>
+            <input type="tel" id="f-whatsapp" name="whatsapp" required autocomplete="tel" placeholder="+33 6 12 34 56 78">
+          </div>
+
+          <div class="pform-field">
+            <span class="pform-label">Es-tu un homme ou une femme ? <b>*</b></span>
+            <div class="pform-radios">
+              <label><input type="radio" name="genre" value="homme" required> Homme</label>
+              <label><input type="radio" name="genre" value="femme" required> Femme</label>
+            </div>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-methode">Quelle méthode utilises-tu pour l'apprentissage de la lecture ? <b>*</b></label>
+            <input type="text" id="f-methode" name="methode_lecture" required>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-approche" id="lbl-approche"></label>
+            <textarea id="f-approche" name="approche_comprehension" rows="5" required></textarea>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-activite">Est-ce que l'enseignement est votre activité principale ? <b>*</b></label>
+            <input type="text" id="f-activite" name="activite_principale" required>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-heures">Si l'on venait à te recruter dès cette semaine par exemple, combien d'heures par semaine pouvez-vous consacrer à l'enseignement (environ) ? <b>*</b></label>
+            <input type="text" id="f-heures" name="heures_semaine" required>
+          </div>
+
+          <div class="pform-field">
+            <span class="pform-label">Quels jours êtes-vous disponible pour enseigner ? <b>*</b></span>
+            <div class="pform-days">
+              <label><input type="checkbox" name="jours" value="Tous les jours"> Tous les jours</label>
+              <label><input type="checkbox" name="jours" value="Lundi"> Lundi</label>
+              <label><input type="checkbox" name="jours" value="Mardi"> Mardi</label>
+              <label><input type="checkbox" name="jours" value="Mercredi"> Mercredi</label>
+              <label><input type="checkbox" name="jours" value="Jeudi"> Jeudi</label>
+              <label><input type="checkbox" name="jours" value="Vendredi"> Vendredi</label>
+              <label><input type="checkbox" name="jours" value="Samedi"> Samedi</label>
+              <label><input type="checkbox" name="jours" value="Dimanche"> Dimanche</label>
+            </div>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-tarif">Quel est actuellement votre tarif horaire pour un cours individuel d'arabe coranique ? (en euro, sinon préciser la devise) <b>*</b></label>
+            <input type="text" id="f-tarif" name="tarif_horaire" required>
+          </div>
+
+          <div class="pform-field">
+            <label for="f-infos">Informations supplémentaires à nous communiquer ?</label>
+            <textarea id="f-infos" name="infos" rows="4"></textarea>
+          </div>
+
+          <div class="pform-check">
+            <label><input type="checkbox" name="etape_vocal" required> <span id="lbl-etape"></span> <b>*</b></label>
+          </div>
+
+          <!-- anti-bot : doit rester vide -->
+          <div class="pform-hp" aria-hidden="true"><label>Site web <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <p class="pform-error" id="form-error" hidden></p>
+          <button type="submit" class="pform-submit" id="submit-btn">Envoyer ma candidature</button>
+          <p class="pform-note">Après l'envoi, tu es redirigé(e) automatiquement vers l'étape 3 (message vocal WhatsApp).</p>
+        </form>
       </div>
     </div>
   </section>
@@ -169,21 +256,6 @@
         });
       }
 
-      // Choix Homme / Femme → affiche le formulaire correspondant
-      var genreBtns = document.querySelectorAll('.genre-btn');
-      Array.prototype.forEach.call(genreBtns, function(btn) {
-        btn.addEventListener('click', function() {
-          var genre = btn.getAttribute('data-genre');
-          Array.prototype.forEach.call(genreBtns, function(b) { b.classList.toggle('active', b === btn); });
-          ['homme', 'femme'].forEach(function(g) {
-            var wrap = document.getElementById('form-' + g);
-            var show = (g === genre);
-            wrap.classList.toggle('form-offscreen', !show);
-          });
-          fbq('trackCustom', 'GenreChoisi', { genre: genre });
-          document.getElementById('form-' + genre).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
 
       // Contact : clic sur le bouton WhatsApp (Étape 3)
       // Le Lead part uniquement sur la page de remerciement systeme.io (b92e6e31)
@@ -199,5 +271,6 @@
     })();
   </script>
 
+  <script src="form.js"></script>
 </body>
 </html>

@@ -417,3 +417,97 @@ body { overflow-x: hidden; }
 
 /* hidden doit gagner sur les display: des classes */
 [hidden] { display: none !important; }
+
+/* ===========================
+   FORMULAIRE NATIF (profs)
+=========================== */
+.pform-wrapper { padding: 32px 36px 36px; }
+.pform-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.pform-intro {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin-bottom: 26px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.pform-intro p + p { margin-top: 10px; }
+.pform-warn { font-weight: 700; color: var(--green); }
+.pform-field { margin-bottom: 20px; }
+.pform-row { display: flex; gap: 16px; }
+.pform-row .pform-field { flex: 1 1 0; }
+.pform-field label, .pform-label {
+  display: block;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 7px;
+  line-height: 1.45;
+}
+.pform b { color: #c0392b; font-weight: 700; }
+.pform input[type="text"],
+.pform input[type="tel"],
+.pform textarea {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--dark);
+  background: #fff;
+  border: 1.5px solid #d7d2c8;
+  border-radius: 8px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.pform input:focus, .pform textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(27,74,71,0.12);
+}
+.pform textarea { resize: vertical; min-height: 110px; }
+.pform-check { margin-bottom: 16px; }
+.pform-check label, .pform-radios label, .pform-days label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.93rem;
+  line-height: 1.5;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text);
+}
+.pform input[type="checkbox"], .pform input[type="radio"] {
+  width: 20px; height: 20px; flex: 0 0 20px; margin-top: 2px;
+  accent-color: var(--green);
+}
+.pform-radios { display: flex; gap: 28px; }
+.pform-days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 20px; }
+.pform-hp { position: absolute; left: -200vw; top: 0; width: 1px; height: 1px; overflow: hidden; }
+.pform-error {
+  background: #fdecea; color: #a93226;
+  border: 1px solid #f5c6c2; border-radius: 8px;
+  padding: 12px 14px; font-size: 0.92rem; margin-bottom: 14px;
+}
+.pform-submit {
+  display: block; width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--gold); background: var(--green);
+  border: none; border-radius: 8px;
+  padding: 16px 20px; cursor: pointer;
+  transition: background .15s;
+}
+.pform-submit:hover { background: var(--green-mid); }
+.pform-submit:disabled { opacity: .6; cursor: default; }
+.pform-note { margin-top: 12px; font-size: 0.82rem; color: var(--muted); text-align: center; }
+@media (max-width: 640px) {
+  .pform-wrapper { padding: 22px 16px 26px; }
+  .pform-row { flex-direction: column; gap: 0; }
+  .pform-radios { gap: 18px; }
+  .pform-days { grid-template-columns: 1fr 1fr; }
+}
