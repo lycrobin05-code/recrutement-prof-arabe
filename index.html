@@ -39,7 +39,7 @@
   <!-- VIDEO -->
   <section class="video-section">
     <div class="container">
-      <p class="video-label">Regardez cette vidéo avant de postuler</p>
+      <p class="video-label">Étape 1 — Regardez cette vidéo en entier avant de postuler</p>
       <div class="video-wrapper">
         <video id="video-thomas" controls preload="auto" playsinline autoplay style="width:100%;border-radius:8px;display:block;">
           <source src="video-recrutement.mp4" type="video/mp4">
@@ -56,7 +56,7 @@
   <!-- CTA FLÉCHÉ -->
   <div class="cta-arrow">
     <div class="container">
-      <p>Étape 1 — Remplissez ce questionnaire</p>
+      <p>Étape 2 — Remplissez ce questionnaire</p>
       <span class="arrow">↓</span>
     </div>
   </div>
@@ -88,28 +88,6 @@
           scrolling="yes"
           style="min-width:100%;min-height:1100px;border:none;">
         </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÉTAPE 2 — WHATSAPP -->
-  <section class="step2">
-    <div class="container">
-      <div class="step2-inner">
-        <div class="step2-num">Étape 2</div>
-        <h2 class="step2-title">Envoyez-nous un message vocal sur WhatsApp</h2>
-        <p class="step2-text">
-          Une fois le formulaire rempli, contactez-nous sur WhatsApp.<br>
-          Indiquez votre <strong>prénom et nom</strong>, dites que vous avez rempli le formulaire, puis envoyez un message vocal dans lequel vous expliquez <strong><u>EN FRANÇAIS</u></strong> :
-        </p>
-        <div class="step2-question">
-          Le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.
-        </div>
-        <p class="step2-note">C'est ce message vocal qui nous permettra d'évaluer votre façon de vous exprimer et d'expliquer un concept grammatical. Soyez spontané — pas de préparation sur internet, on vous posera les mêmes questions en entretien.</p>
-        <a id="btn-whatsapp" class="step2-btn" href="https://wa.me/33780505214" target="_blank">
-          Ouvrir WhatsApp →
-        </a>
-        <p class="step2-phone">Si le bouton ne fonctionne pas : <a href="https://wa.me/33780505214" target="_blank">+33 7 80 50 52 14</a></p>
       </div>
     </div>
   </section>
@@ -185,17 +163,6 @@
         });
       });
 
-      // Contact : clic sur le bouton WhatsApp (Étape 2)
-      // Le Lead part uniquement sur la page de remerciement systeme.io (b92e6e31)
-      var whatsappBtn = document.getElementById('btn-whatsapp');
-      if (whatsappBtn) {
-        whatsappBtn.addEventListener('click', function() {
-          fbq('track', 'Contact', {
-            content_name: 'WhatsApp recrutement prof',
-            content_category: 'Recrutement'
-          });
-        });
-      }
     })();
   </script>
 

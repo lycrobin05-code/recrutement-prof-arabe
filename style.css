@@ -115,11 +115,10 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold);
+  letter-spacing: 0.01em;
+  color: var(--green);
   margin-bottom: 22px;
 }
 
@@ -310,7 +309,7 @@ footer p {
   .br-mobile { display: inline; }
 
   .video-section { padding: 22px 0 0; }
-  .video-label { margin-bottom: 12px; font-size: 0.7rem; }
+  .video-label { margin-bottom: 12px; font-size: 0.95rem; }
   .cta-arrow { padding: 18px 0; }
   .form-section { padding: 20px 0 32px; }
   .genre-choice { margin-bottom: 18px; }
