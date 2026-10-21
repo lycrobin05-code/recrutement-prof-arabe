@@ -488,7 +488,7 @@ body { overflow-x: hidden; }
 .pform-radios { display: flex; gap: 28px; }
 .pform-days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 20px; }
 .pform-hp { position: absolute; left: -200vw; top: 0; width: 1px; height: 1px; overflow: hidden; }
-.pform-error {
+.pform-error, .pform-disqualif {
   background: #fdecea; color: #a93226;
   border: 1px solid #f5c6c2; border-radius: 8px;
   padding: 12px 14px; font-size: 0.92rem; margin-bottom: 14px;
@@ -502,7 +502,8 @@ body { overflow-x: hidden; }
   padding: 16px 20px; cursor: pointer;
   transition: background .15s;
 }
-.pform-submit:hover { background: var(--green-mid); }
+.pform-submit:disabled { opacity: .45; cursor: not-allowed; }
+.pform-submit:hover:not(:disabled) { background: var(--green-mid); }
 .pform-submit:disabled { opacity: .6; cursor: default; }
 .pform-note { margin-top: 12px; font-size: 0.82rem; color: var(--muted); text-align: center; }
 @media (max-width: 640px) {

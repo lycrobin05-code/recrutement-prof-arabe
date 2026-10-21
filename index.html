@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recrutement — Institut À la lumière du Coran</title>
   <meta name="description" content="L'Institut À la lumière du Coran recrute un professeur d'arabe coranique. Postulez en 5 minutes.">
-  <link rel="stylesheet" href="style.css?v=20261020b">
+  <link rel="stylesheet" href="style.css?v=20261021a">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Meta Pixel Code -->
@@ -79,12 +79,7 @@
 
           <div class="pform-intro">
             <p class="pform-warn">⚠️ À lire avant de remplir</p>
-            <p id="form-intro"></p>
-            <p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>
-            <p>Nous accompagnons des élèves engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeurs bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis.</p>
-            <p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : un message vocal WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire. Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire.</p>
-            <p><strong>Pour cette session de recrutement, nous recherchons des professeurs disponibles le samedi et le dimanche.</strong></p>
-            <p><strong>Si</strong> tu ne parles pas parfaitement français, si tu n'es pas disponible le week-end pour enseigner, ou si tu ne souhaites pas, à long terme, enseigner à temps plein dans un institut qui t'apporte de la stabilité… <strong>merci de ne pas remplir ce formulaire.</strong></p>
+            <div id="form-intro"></div>
           </div>
 
           <div class="pform-check">
@@ -94,7 +89,7 @@
             <label><input type="checkbox" name="temps_plein" required> <span id="lbl-temps-plein"></span> <b>*</b></label>
           </div>
           <div class="pform-check">
-            <label><input type="checkbox" name="francais" required> <span>Je certifie que je parle parfaitement français. <b>*</b></span></label>
+            <label><input type="checkbox" name="francais" required> <span>Je certifie que je parle parfaitement français. Si ce n'est pas le cas, il est inutile de postuler. <b>*</b></span></label>
           </div>
 
           <div class="pform-row">
@@ -143,7 +138,7 @@
           </div>
 
           <div class="pform-field">
-            <span class="pform-label">Quels jours êtes-vous disponible pour enseigner ? <b>*</b></span>
+            <span class="pform-label">Quels jours êtes-vous disponible pour enseigner ? (Si tu n'es pas disponible le dimanche, merci de ne pas remplir le formulaire.) <b>*</b></span>
             <div class="pform-days">
               <label><input type="checkbox" name="jours" value="Tous les jours"> Tous les jours</label>
               <label><input type="checkbox" name="jours" value="Lundi"> Lundi</label>
@@ -160,6 +155,24 @@
             <label for="f-tarif">Quel est actuellement votre tarif horaire pour un cours individuel d'arabe coranique ? (en euro, sinon préciser la devise) <b>*</b></label>
             <input type="text" id="f-tarif" name="tarif_horaire" required>
           </div>
+
+          <div class="pform-field">
+            <span class="pform-label">As-tu un ordinateur avec une webcam pour les cours en visio ? <b>*</b></span>
+            <div class="pform-radios">
+              <label><input type="radio" name="webcam" value="Oui" required> Oui</label>
+              <label><input type="radio" name="webcam" value="Non" required> Non</label>
+            </div>
+          </div>
+
+          <div class="pform-field">
+            <span class="pform-label">As-tu une bonne connexion internet ? <b>*</b></span>
+            <div class="pform-radios">
+              <label><input type="radio" name="connexion" value="Oui" required> Oui</label>
+              <label><input type="radio" name="connexion" value="Non" required> Non</label>
+            </div>
+          </div>
+
+          <p class="pform-disqualif" id="form-disqualif" hidden>Un ordinateur avec webcam et une bonne connexion internet sont indispensables pour enseigner dans l'institut. Ta candidature ne peut donc pas être retenue pour le moment.</p>
 
           <div class="pform-field">
             <label for="f-infos">Informations supplémentaires à nous communiquer ?</label>

@@ -18,15 +18,29 @@
   var TXT = {
     homme: {
       titre: "Candidature — professeur homme",
-      intro: "Ce formulaire s'adresse exclusivement aux <strong>professeurs hommes</strong> qui enseignent la lecture et la compréhension de l'arabe du Coran à des francophones, et qui souhaitent intégrer un institut en ligne structuré pour se concentrer <strong>à temps plein</strong> sur l'enseignement.",
-      tempsPlein: "Je comprends que l'institut cherche un professeur qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (35h).",
+      intro:
+        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeurs hommes</strong> qui enseignent la lecture et la compréhension de l'arabe du Coran à des francophones, et qui souhaitent intégrer un institut en ligne structuré pour se concentrer <strong>à temps plein</strong> sur l'enseignement.</p>" +
+        "<p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>" +
+        "<p>Nous accompagnons des élèves engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeurs bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis dans leur progression.</p>" +
+        "<p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : un message vocal WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire. Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
+        "<p>Nous recevons des centaines de candidatures. Merci de bien respecter ces règles :</p>" +
+        "<p><strong>Pour cette session de recrutement, nous recherchons en priorité des professeurs disponibles le dimanche, le mercredi et généralement le soir.</strong></p>" +
+        "<p><strong>Si :</strong><br>– tu ne parles pas parfaitement français,<br>– tu n'es pas disponible le dimanche pour enseigner,<br>– tu ne souhaites pas, à long terme, enseigner à temps plein dans un institut qui t'apporte de la stabilité dans ta profession,<br>… <strong>merci de ne pas remplir ce formulaire.</strong></p>",
+      tempsPlein: "Je comprends que l'institut cherche un professeur qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (autour de 35h). Si je ne remplis pas ces critères, il est inutile de postuler.",
       approche: "Quelle approche utilisez-vous pour enseigner la compréhension de l'arabe coranique ? (de quelle manière tu enseignes l'arabe pour qu'un élève comprenne l'arabe du Coran)",
       etape: "Après avoir appuyé sur « Envoyer », je vais être redirigé sur une page pour effectuer l'étape 3 (message vocal WhatsApp). Sans cette étape, ma candidature ne sera pas retenue."
     },
     femme: {
       titre: "Candidature — professeure femme",
-      intro: "Ce formulaire s'adresse exclusivement aux <strong>professeures femmes</strong> qui enseignent la lecture et la compréhension de l'arabe du Coran à des francophones, et qui souhaitent intégrer un institut en ligne structuré pour se concentrer <strong>à temps plein</strong> sur l'enseignement.",
-      tempsPlein: "Je comprends que l'institut cherche une professeure qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (35h).",
+      intro:
+        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeures femmes</strong> qui enseignent la lecture et la compréhension de l'arabe du Coran à des francophones, et qui souhaitent intégrer un institut en ligne structuré pour se concentrer <strong>à temps plein</strong> sur l'enseignement.</p>" +
+        "<p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>" +
+        "<p>Nous accompagnons des élèves engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeures bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis dans leur progression.</p>" +
+        "<p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : un message vocal WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire. Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
+        "<p>Nous recevons des centaines de candidatures. Merci de bien respecter ces règles :</p>" +
+        "<p><strong>Pour cette session de recrutement, nous recherchons en priorité des professeures disponibles le dimanche, le mercredi et généralement le soir.</strong></p>" +
+        "<p><strong>Si :</strong><br>– tu ne parles pas parfaitement français,<br>– tu n'es pas disponible le dimanche pour enseigner,<br>– tu ne souhaites pas, à long terme, enseigner à temps plein dans un institut qui t'apporte de la stabilité dans ta profession,<br>… <strong>merci de ne pas remplir ce formulaire.</strong></p>",
+      tempsPlein: "Je comprends que l'institut cherche une professeure qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (autour de 35h). Si je ne remplis pas ces critères, il est inutile de postuler.",
       approche: "Quelle approche utilisez-vous pour enseigner la compréhension de l'arabe coranique ? (de quelle manière tu enseignes l'arabe pour qu'une élève comprenne l'arabe du Coran)",
       etape: "Après avoir appuyé sur « Envoyer », je vais être redirigée sur une page pour effectuer l'étape 3 (message vocal WhatsApp). Sans cette étape, ma candidature ne sera pas retenue."
     }
@@ -80,6 +94,25 @@
     });
   });
 
+  // Disqualification : pas de webcam ou pas de bonne connexion → candidature bloquée
+  var disqualifBox = document.getElementById("form-disqualif");
+  function isDisqualified() {
+    var w = form.querySelector('input[name="webcam"]:checked');
+    var c = form.querySelector('input[name="connexion"]:checked');
+    return (w && w.value === "Non") || (c && c.value === "Non");
+  }
+  function updateDisqualif() {
+    var dq = isDisqualified();
+    disqualifBox.hidden = !dq;
+    submitBtn.disabled = dq;
+  }
+  Array.prototype.forEach.call(form.querySelectorAll('input[name="webcam"], input[name="connexion"]'), function (r) {
+    r.addEventListener("change", function () {
+      updateDisqualif();
+      if (isDisqualified() && typeof fbq !== "undefined") fbq("trackCustom", "CandidatDisqualifie", { motif: r.name });
+    });
+  });
+
   function showError(msg) {
     errorBox.textContent = msg;
     errorBox.hidden = false;
@@ -94,6 +127,7 @@
     if (form.website && form.website.value) return;
 
     if (!genre) { showError("Choisis d'abord : Homme ou Femme."); return; }
+    if (isDisqualified()) { updateDisqualif(); return; }
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
     var jours = [];
@@ -126,6 +160,8 @@
       heures_semaine: v("heures_semaine"),
       jours: jours,
       tarif_horaire: v("tarif_horaire"),
+      webcam: form.querySelector('input[name="webcam"]:checked').value,
+      connexion: form.querySelector('input[name="connexion"]:checked').value,
       infos: v("infos"),
       etape_vocal: form.etape_vocal.checked,
       source_url: location.href
