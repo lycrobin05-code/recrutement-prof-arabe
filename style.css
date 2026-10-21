@@ -485,6 +485,7 @@ body { overflow-x: hidden; }
   width: 20px; height: 20px; flex: 0 0 20px; margin-top: 2px;
   accent-color: var(--green);
 }
+.pform-sub { display: block; font-weight: 400; font-size: 0.9rem; color: #555; margin-top: 4px; }
 .pform-radios { display: flex; gap: 28px; }
 .pform-days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 20px; }
 .pform-hp { position: absolute; left: -200vw; top: 0; width: 1px; height: 1px; overflow: hidden; }
