@@ -4,6 +4,7 @@
 (function () {
   var WEBHOOK_URL = "https://hook.eu2.make.com/me45w2k7bobtmpdq2pmpbfhwixvd6bus";
   var MERCI_URL = "https://lyc-robin05.systeme.io/b92e6e31";
+  var DISQUALIF_URL = "non-retenu.html";
 
   var form = document.getElementById("form-prof");
   var wrap = document.getElementById("form-wrapper");
@@ -109,7 +110,10 @@
   Array.prototype.forEach.call(form.querySelectorAll('input[name="webcam"], input[name="connexion"]'), function (r) {
     r.addEventListener("change", function () {
       updateDisqualif();
-      if (isDisqualified() && typeof fbq !== "undefined") fbq("trackCustom", "CandidatDisqualifie", { motif: r.name });
+      if (!isDisqualified()) return;
+      // Redirection immédiate vers la page « candidature non retenue »
+      if (typeof fbq !== "undefined") fbq("trackCustom", "CandidatDisqualifie", { motif: r.name });
+      setTimeout(function () { location.href = DISQUALIF_URL; }, 300);
     });
   });
 
@@ -127,7 +131,7 @@
     if (form.website && form.website.value) return;
 
     if (!genre) { showError("Choisis d'abord : Homme ou Femme."); return; }
-    if (isDisqualified()) { updateDisqualif(); return; }
+    if (isDisqualified()) { location.href = DISQUALIF_URL; return; }
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
     var jours = [];
