@@ -20,7 +20,7 @@
     homme: {
       titre: "Candidature — professeur homme",
       intro:
-        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeurs hommes ayant un niveau natif en français</strong> qui souhaitent enseigner la lecture et la compréhension de l'arabe du Coran à des francophones.</p>" +
+        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeurs hommes ayant un niveau équivalent natif en français</strong> qui souhaitent enseigner la lecture et la compréhension de l'arabe du Coran à des francophones.</p>" +
         "<p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>" +
         "<p>Nous accompagnons des élèves <strong>adultes</strong> engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeurs bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis dans leur progression. <strong>(Pas d'enfants.)</strong></p>" +
         "<p><strong>Rémunération :</strong></p>" +
@@ -29,8 +29,8 @@
         "<p>Aujourd'hui, nous assurons une rémunération <strong>autour de 8 € par heure de cours</strong>, avec une évolution vers un <strong>salaire fixe mensuel</strong> si nous nous rapprochons d'un temps plein avec toi.</p>" +
         "<p><strong>Pour cette session de recrutement, nous recherchons en priorité des professeurs disponibles le dimanche, le mercredi et généralement le soir.</strong></p>" +
         "<p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : nous envoyer un message <strong>vocal</strong> sur WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.</p>" +
-        "<p>Ce message nous permettra d'évaluer ton niveau de français et tes connaissances.</p>" +
-        "<p>Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
+        "<p>Si tu parviens à rejoindre l'institut, tu expliqueras la langue arabe en français : ce message vocal nous permettra d'évaluer ton niveau de français et tes connaissances.</p>" +
+        "<p>Si tu sais que tu n'es pas en capacité de le faire, ou que ton niveau en français n'est pas suffisant pour cela, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
         "<p>Nous recevons des centaines de candidatures. Nous recherchons impérativement quelqu'un qui :<br>– a un <strong>niveau natif</strong> en français,<br>– est disponible le dimanche pour enseigner,<br>– a déjà enseigné l'arabe à des <strong>adultes</strong> francophones,<br>– est prêt à s'adapter à la méthode d'enseignement de l'institut,<br>– souhaite, à l'avenir, enseigner à temps plein dans un institut qui lui fournit des élèves et de la stabilité dans sa profession.</p>" +
         "<p><strong>Si tu ne corresponds pas à ces critères, merci de ne pas remplir ce formulaire.</strong></p>",
       tempsPlein: "Je comprends que l'institut cherche un professeur qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (autour de 35h). Si je ne remplis pas ces critères, il est inutile de postuler.",
@@ -40,7 +40,7 @@
     femme: {
       titre: "Candidature — professeure femme",
       intro:
-        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeures femmes ayant un niveau natif en français</strong> qui souhaitent enseigner la lecture et la compréhension de l'arabe du Coran à des francophones.</p>" +
+        "<p>Ce formulaire s'adresse exclusivement aux <strong>professeures femmes ayant un niveau équivalent natif en français</strong> qui souhaitent enseigner la lecture et la compréhension de l'arabe du Coran à des francophones.</p>" +
         "<p>En rejoignant notre institut en ligne, notre objectif est simple : te permettre de te concentrer pleinement sur l'enseignement, pendant que nous nous chargeons de t'apporter des élèves de manière stable et prévisible.</p>" +
         "<p>Nous accompagnons des élèves <strong>adultes</strong> engagés, de manière individuelle, dans un cursus complet de l'arabe du Coran (lecture et compréhension) sur 10 mois. Nos professeures bénéficient ainsi d'une activité régulière avec des élèves sérieux et investis dans leur progression. <strong>(Pas d'enfants.)</strong></p>" +
         "<p><strong>Rémunération :</strong></p>" +
@@ -49,8 +49,8 @@
         "<p>Aujourd'hui, nous assurons une rémunération <strong>autour de 8 € par heure de cours</strong>, avec une évolution vers un <strong>salaire fixe mensuel</strong> si nous nous rapprochons d'un temps plein avec toi.</p>" +
         "<p><strong>Pour cette session de recrutement, nous recherchons en priorité des professeures disponibles le dimanche, le mercredi et généralement le soir.</strong></p>" +
         "<p>Après l'envoi de ce formulaire, tu arrives sur une page qui te demande d'effectuer l'<strong>étape 3</strong> : nous envoyer un message <strong>vocal</strong> sur WhatsApp dans lequel tu expliques, <strong>en français</strong>, le moudaf et moudaf ilayh — comment le reconnaître et comment le construire.</p>" +
-        "<p>Ce message nous permettra d'évaluer ton niveau de français et tes connaissances.</p>" +
-        "<p>Si tu sais que tu n'es pas en capacité de le faire, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
+        "<p>Si tu parviens à rejoindre l'institut, tu expliqueras la langue arabe en français : ce message vocal nous permettra d'évaluer ton niveau de français et tes connaissances.</p>" +
+        "<p>Si tu sais que tu n'es pas en capacité de le faire, ou que ton niveau en français n'est pas suffisant pour cela, merci de ne pas remplir ce formulaire : ta candidature ne serait pas retenue.</p>" +
         "<p>Nous recevons des centaines de candidatures. Nous recherchons impérativement une professeure qui :<br>– a un <strong>niveau natif</strong> en français,<br>– est disponible le dimanche pour enseigner,<br>– a déjà enseigné l'arabe à des <strong>adultes</strong> francophones,<br>– est prête à s'adapter à la méthode d'enseignement de l'institut,<br>– souhaite, à l'avenir, enseigner à temps plein dans un institut qui lui fournit des élèves et de la stabilité dans sa profession.</p>" +
         "<p><strong>Si tu ne corresponds pas à ces critères, merci de ne pas remplir ce formulaire.</strong></p>",
       tempsPlein: "Je comprends que l'institut cherche une professeure qui, dans l'avenir, puisse se libérer du temps pour enseigner à temps plein dans l'institut (autour de 35h). Si je ne remplis pas ces critères, il est inutile de postuler.",
